@@ -14,7 +14,10 @@ local force_next_deletion = false
 
 local get_worktree_path = function(prompt_bufnr)
     local selection = action_state.get_selected_entry(prompt_bufnr)
-    return selection.path
+    if selection ~= nil then
+        return selection.path
+    end
+    return nil
 end
 
 local switch_worktree = function(prompt_bufnr)
